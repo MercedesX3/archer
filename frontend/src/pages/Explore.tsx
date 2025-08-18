@@ -4,5 +4,8 @@ export default function Explore() {
     const {state} = useLocation();
     const word = state?.word || "Search";
 
-    return <h1>{word}</h1>
+    return <div>
+        <h1>{word}</h1>
+        <h1>Screen</h1>
+        </div>
 }

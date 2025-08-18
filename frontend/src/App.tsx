@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Explore from './pages/Explore';
 import Home from './pages/Home';
+import Collections from './pages/Collections';
 
 
 import Logo from "/logo.svg";
@@ -30,6 +31,7 @@ export default function App() {
         </div>
             {user ? (
               <div className="flex items-center gap-4">
+                <Link to="/Explore" className="hover:underline text-[clamp(1rem,1vw,1rem)]">Explore</Link>
                 <button
                   className="bg-[#93032E] py-2 px-4 text-[clamp(0.5rem,1vw,1rem)]
                   rounded-md font-semibold text-white hover:bg-[#520019] transition-colors 
@@ -68,6 +70,7 @@ export default function App() {
 
           {/**Protected Routes */}
           <Route path="/Home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/Collections" element={<ProtectedRoute><Collections/></ProtectedRoute>} />
         </Routes>
       </main>
 
