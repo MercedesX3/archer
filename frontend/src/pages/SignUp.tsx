@@ -20,7 +20,7 @@ export default function SignUp() {
     const handleUserInfo = async () => {
         if (email.includes('@') && password.length >= 6) {
             await createUserWithEmailAndPassword(auth, email, password);
-            navigate("/Explore");
+            navigate("/Home");
           } else {
             alert("Invalid email or password");
           }

@@ -21,7 +21,7 @@ export default function SignUp() {
         if (!email || !password) return alert("Please enter email and password");
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            navigate("/Explore");
+            navigate("/Home");
         } catch (error: any) {
             console.error(error);
             alert(error.message);
