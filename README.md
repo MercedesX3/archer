@@ -1,6 +1,6 @@
 ![archer header](frontend/public/Github-Header.png)
 
-# archer
+# Archer
 a dictionary for architects
 
 # Features
