@@ -1,4 +1,5 @@
-![archer header](/frontend/public/Github Header.png)
+![archer header](public/Github-Header.png)
+
 # archer
 a dictionary for architects
 
