@@ -1,5 +1,7 @@
 import {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function SignUp() {
     const navigate = useNavigate();
@@ -15,20 +17,13 @@ export default function SignUp() {
     }
 
     
-    const handleUserInfo = () => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      
-        if (!emailRegex.test(email)) {
-          alert("Please enter a valid email address.");
-          return;
-        }
-      
-        if (password.length < 6) {
-          alert("Password must be at least 6 characters long.");
-          return;
-        }
-
-        navigate("/Explore", { state: { email, password } });
+    const handleUserInfo = async () => {
+        if (email.includes('@') && password.length >= 6) {
+            await createUserWithEmailAndPassword(auth, email, password);
+            navigate("/Explore");
+          } else {
+            alert("Invalid email or password");
+          }
       };
       
 

@@ -1,5 +1,7 @@
 import {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function SignUp() {
     const navigate = useNavigate();
@@ -15,7 +17,15 @@ export default function SignUp() {
     }
 
     
-    const handleUserInfo = () => {
+    const handleUserInfo = async () => {
+        if (!email || !password) return alert("Please enter email and password");
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            navigate("/Explore");
+        } catch (error: any) {
+            console.error(error);
+            alert(error.message);
+        }
     }
 
     return (
